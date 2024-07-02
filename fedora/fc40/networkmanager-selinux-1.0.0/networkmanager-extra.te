@@ -1,0 +1,18 @@
+module networkmanager-extra 1.0;
+
+require {
+	type NetworkManager_etc_rw_t;
+	type NetworkManager_t;
+	type etc_t;
+	class file unlink;
+	class lnk_file { create rename unlink };
+}
+
+#============= NetworkManager_t ==============
+allow NetworkManager_t NetworkManager_etc_rw_t:lnk_file unlink;
+
+#!!!! This avc is allowed in the current policy
+allow NetworkManager_t etc_t:file unlink;
+
+#!!!! This avc is allowed in the current policy
+allow NetworkManager_t etc_t:lnk_file { create rename unlink };

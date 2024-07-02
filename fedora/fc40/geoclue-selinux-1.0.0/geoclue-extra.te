@@ -1,0 +1,10 @@
+module geoclue-extra 1.0;
+
+require {
+	type geoclue_t;
+	type NetworkManager_etc_rw_t;
+	class lnk_file read;
+}
+
+#============= geoclue_t ==============
+allow geoclue_t NetworkManager_etc_rw_t:lnk_file read;
